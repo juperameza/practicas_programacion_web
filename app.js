@@ -22,6 +22,7 @@ app.get("/api", (req, res) => {
 app.get("/person/:id", (req, res) => {
   res.render("person", {
     ID: req.params.id,
+    /* Recibiendo el mensaje mediante el query string */
     message: req.query.message,
     times: req.query.times,
   });
