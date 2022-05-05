@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <link href="/assets/style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <ul>
+      <!-- Creando una variable para usarla en el ciclo, inyectando javascript puro con las etiquetas de ejs-->
+      <%let j=ID %> <% if (ID%2==0) { %> <%j=ID*2%> <%} %>
+      <!-- Estructura que identifica si el id pasado en el url es par y asignandole un valor diferente a j -->
+      <% for(let i=1;i<=j;i++){%>
+      <!-- Imprimiendo el valor de i como elemento de lista -->
+      <li><%=i%></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
