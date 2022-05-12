@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <link href="/assets/style.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Validacion que el mensaje sea uno de los tres disponibles -->
+    <% if(message!="Hola"&& message!= "Adios" && message!= "Bienvenido") {%>
+    <%message="Mensaje no valido"%> <%}%>
+    <!-- Imprimiendo el Mensaje pasado por el query string -->
+    <% times= parseInt(times) %> <% for(let i=1;i<=times;i++){%>
+    <!-- Imprimiendo el valor de i como elemento de lista -->
+    <%= message %> <%= ID %> <br /><% } %>
+  </body>
+</html>
