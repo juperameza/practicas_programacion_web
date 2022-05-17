@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/assets/style.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Generando el formulario de student con el metodo post y dos inputs de nombre y apellido -->
+    <form action="/student" method="POST">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" /><br /><br />
+      <label for="lsname">Last name:</label>
+      <input type="text" id="lsname" name="lsname" /><br /><br />
+      <input type="submit" value="Submit" />
+      <!-- Se declara el boton para enviar la informacion mediante la peticion post -->
+    </form>
+    <script>
+      $.ajax({
+        type: "POST",
+        url: "/personjson",
+        data: JSON.stringify({ firstname: "Juan", lastname: "Meza" }),
+        dataType: "json",
+        contentType: "application/json",
+      });
+    </script>
+  </body>
+</html>
