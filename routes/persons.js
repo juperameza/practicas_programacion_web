@@ -6,9 +6,9 @@ let Person = require("../models/person");
 router.get("/persons", (req, res, next) => {
   Person.find((err, persons) => {
     if (err) return next(err);
-    res.render("persons.ejs", { persons: persons });
+    res.render("persons.ejs", { persons: persons }); //renderizamos la vista person a la cual le mandamos el objeto persons
   });
-}); //definimos la ruta de persona que devuelve un json si no hay error
+});
 
 router.get("/person", (req, res) => {
   res.render("person");
@@ -24,7 +24,10 @@ router.post("/addPerson", (req, res) => {
   myPerson.save((err, doc) => {
     if (err) throw err;
     else {
-      res.render("index.ejs");
+      Person.find((err, persons) => {
+        if (err) return next(err);
+        res.render("persons.ejs", { persons: persons });
+      }); //Renderizamos la vista de personas despues de enviar el formulario
       console.log("User saved successfully!", doc);
     }
   });
