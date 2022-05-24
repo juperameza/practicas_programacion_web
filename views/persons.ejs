@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>NSS</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Tipo de sangre</th>
+      </tr>
+      <%Object.values(persons).forEach(val => {%>
+
+      <tr>
+        <td><%=val.nss%></td>
+        <td><%=val.nombre%></td>
+        <td><%=val.edad%></td>
+        <td><%=val.tipoSangre%></td>
+      </tr>
+
+      <% });%>
+    </table>
+  </body>
+</html>
