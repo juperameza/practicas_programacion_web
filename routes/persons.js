@@ -13,6 +13,9 @@ router.get("/persons", (req, res, next) => {
 router.get("/person", (req, res) => {
   res.render("person");
 });
+router.get("/", (req, res) => {
+  res.render("index");
+}); //agregando la ruta para cargar el index
 
 router.post("/addPerson", (req, res) => {
   const myPerson = new Person({
@@ -24,10 +27,7 @@ router.post("/addPerson", (req, res) => {
   myPerson.save((err, doc) => {
     if (err) throw err;
     else {
-      Person.find((err, persons) => {
-        if (err) return next(err);
-        res.render("persons.ejs", { persons: persons });
-      }); //Renderizamos la vista de personas despues de enviar el formulario
+      res.render("index"); //Renderizamos la vista de index despues de enviar el formulario
       console.log("User saved successfully!", doc);
     }
   });
